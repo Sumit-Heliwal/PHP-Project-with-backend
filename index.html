@@ -1,0 +1,101 @@
+<html>
+
+<head>
+	<title>Querry Controller</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel = "icon" href = "sbb logo 1.jpg" type = "image/x-icon">
+</head>
+
+
+	<script language="Javascript">
+		function validate(){
+var allok = true;
+  if(isNaN(trip.Sr_noGatepass_no__1.value)){
+    alert('Invalid input for Sr no/Gatepass no., this must be a number')
+    return false;
+  }
+  if(trip.Lorry_Number__3.value == ""){
+    alert('Invalid input for Lorry Number');
+    return false;
+  }
+  if(trip.Material__4.selectedIndex == 0 ){
+    alert('Invalid input for Material');
+    return false;
+  }
+  if(isNaN(trip.Quantity__5.value)){
+    alert('Invalid input for Quantity, this must be a number')
+    return false;
+  }
+  if(isNaN(trip.Royalty_Number___6.value)){
+    alert('Invalid input for Royalty Number , this must be a number')
+    return false;
+  }
+        var gender = trip.Party__2;
+        var genValue = false;
+
+        for(var i=0; i<gender.length;i++){
+            if(gender[i].checked == true){
+                genValue = true;    
+            }
+        }
+        if(!genValue){
+            alert("Please Choose the Party");
+            return false;
+        }
+
+    }
+  document.trip.Submit.disabled="disabled";
+  return true;
+}
+
+	</script>
+	<div>
+		<form name="trip" method="Post" action="/trip.php" onSubmit="return validate();">
+			<table width="100%" border="0" cellpadding="5" cellspacing="20" bgcolor='white'>
+				<tr>
+					<td>Sr no/Gatepass no.:</td>
+				</tr>
+				<tr>
+					<td><input type="edit" name="Sr_noGatepass_no__1" value="" size="10"></td></tr>
+<tr><td valign=top>Party:</td></tr><tr><td valign=top>
+<table width="100%"><tr><td>
+<input type="radio" name="Party__2" value="Cash" checked>Cash</td><td>
+<input type="radio" name="Party__2" value="A Khan">A Khan</td><td>
+<input type="radio" name="Party__2" value="DPJ Madn">DPJ Madn</td></tr><tr><td>
+<input type="radio" name="Party__2" value="D P Jain">D P Jain</td><td>
+<input type="radio" name="Party__2" value="Devnath">Devnath</td><td>
+<input type="radio" name="Party__2" value="Gaikwaad">Gaikwaad</td></tr><tr><td>
+<input type="radio" name="Party__2" value="Mishraji">Mishraji</td><td>
+<input type="radio" name="Party__2" value="Pandey">Pandey</td><td>
+<input type="radio" name="Party__2" value="Rupesh">Rupesh</td></tr><tr><td>
+<input type="radio" name="Party__2" value="Sharad">Sharad</td><td>
+<input type="radio" name="Party__2" value="Raju I Saraf">Raju I Saraf</td><td>
+<!--<input type="radio" name="Party__2" value="">Other<input type="text" name="other_Party__2"></td>--></tr></table>
+
+</td></tr>
+<tr><td>Lorry Number:</td></tr><tr><td><input type="edit" name="Lorry_Number__3" value="" size="20"></td></tr>
+
+<tr><td>Material:</td></tr><tr><td><select name="Material__4">
+
+<option value="20 mm">20 mm</option>
+<option value="10 mm">10 mm</option>
+<option value="40 mm">40 mm</option>
+<option value="40-60">40-60</option>
+<option value="60-80">60-80</option>
+<option value="Dust">Dust</option>
+<option value="Murrum">Murrum</option>
+<option value="Royalty">Royalty</option>
+<option value="Boulder">Boulder</option>
+</select></td></tr>
+<tr><td>Quantity:</td></tr><tr><td><input type="edit" name="Quantity__5" value="" size="20"></td></tr>
+<tr><td>Royalty Number :</td></tr><tr><td><input type="edit" name="Royalty_Number___6" value="" size="20"></td></tr>
+<tr><td align="center"><input type="reset" name="Reset" value="Clean"><br><br><input type="submit" name="Submit" value="Confirm"></td></tr>
+<tr><td><a href="Login.php">Login For data</a></td></tr>
+</table></form>
+
+</div>
+
+</body>
+</html>
